@@ -66,7 +66,7 @@ public class Doctor {
 //      - The @NotNull annotation ensures that a phone number must be provided.
 //      - The @Pattern(regexp = "^[0-9]{10}$") annotation validates that the phone number must be exactly 10 digits long.
     @ElementCollection
-    private List<String> availableTimes
+    private List<String> availableTimes;
 // 7. 'availableTimes' field:
 //    - Type: private List<String>
 //    - Description:
@@ -81,19 +81,19 @@ public class Doctor {
         return name;
     }
     public String getSpecialty() {
-        return patient
+        return patient;
     }
     public String getEmail() {
-        return appointmentTime
+        return appointmentTime;
     }
     public String getPassword() {
-        return password
+        return password;
     }
     public String getPhone() {
-        return phone
+        return phone;
     }
     public List<String> getAvailableTimes() {
-        return availableTimes
+        return availableTimes;
     }
 
     public void setId(String newId) {
@@ -122,4 +122,3 @@ public class Doctor {
 //    - Standard getter and setter methods are provided for all fields: id, name, specialty, email, password, phone, and availableTimes.
 
 }
-
