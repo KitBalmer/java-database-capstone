@@ -1,14 +1,13 @@
 package com.project.back_end.models;
 
+@Document(collection = "prescriptions")
 public class Prescription {
-    @Document(collection = "prescriptions")
+    
   // @Document annotation:
 //    - Marks the class as a MongoDB document (a collection in MongoDB).
 //    - The collection name is specified as "prescriptions" to map this class to the "prescriptions" collection in MongoDB.
-
-    private Long id{
-        @Id
-    }
+    @Id
+    private Long id;
 
 // 1. 'id' field:
 //    - Type: private String
@@ -16,11 +15,9 @@ public class Prescription {
 //      - Represents the unique identifier for each prescription.
 //      - The @Id annotation marks it as the primary key in the MongoDB collection.
 //      - The id is of type String, which is commonly used for MongoDB's ObjectId as it stores IDs as strings in the database.
-
-    private String patientName{
-        @NotNull
-        @Size(min = 3, max = 100)
-    }
+    @NotNull
+    @Size(min = 3, max = 100)
+    private String patientName;
 
 // 2. 'patientName' field:
 //    - Type: private String
@@ -28,36 +25,31 @@ public class Prescription {
 //      - Represents the name of the patient receiving the prescription.
 //      - The @NotNull annotation ensures that the patient name is required.
 //      - The @Size(min = 3, max = 100) annotation ensures that the name length is between 3 and 100 characters, ensuring a reasonable name length.
-
-    private Long apppointmentId{
-        @NotNull
-    }
+    @NotNull
+    private Long apppointmentId;
 // 3. 'appointmentId' field:
 //    - Type: private Long
 //    - Description:
 //      - Represents the ID of the associated appointment where the prescription was given.
 //      - The @NotNull annotation ensures that the appointment ID is required for the prescription.
-    private String medication{
-        @NotNull
-        @Size(min = 3, max = 100)
-    }
+    @NotNull
+    @Size(min = 3, max = 100)
+    private String medication;
 // 4. 'medication' field:
 //    - Type: private String
 //    - Description:
 //      - Represents the medication prescribed to the patient.
 //      - The @NotNull annotation ensures that the medication name is required.
 //      - The @Size(min = 3, max = 100) annotation ensures that the medication name is between 3 and 100 characters, which ensures meaningful medication names.
-    private String dosage{
-        @NotNull
-    }
+    @NotNull
+    private String dosage;
 // 5. 'dosage' field:
 //    - Type: private String
 //    - Description:
 //      - Represents the dosage information for the prescribed medication.
 //      - The @NotNull annotation ensures that the dosage information is provided.
-    private String doctorNotes{
-        @Size(max = 200)
-    }
+    @Size(max = 200)
+    private String doctorNotes;
 // 6. 'doctorNotes' field:
 //    - Type: private String
 //    - Description:
