@@ -66,16 +66,16 @@ public class Prescription {
         return patientNameame;
     }
     public String getAppointmentId() {
-        return appointmentId
+        return appointmentId;
     }
     public String getMedication() {
-        return medication
+        return medication;
     }
     public String getDosage() {
-        return dosage
+        return dosage;
     }
     public String getDoctorNotes() {
-        return doctorNotes
+        return doctorNotes;
     }
 
     public void setId(String newId) {
