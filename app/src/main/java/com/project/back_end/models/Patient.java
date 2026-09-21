@@ -1,24 +1,22 @@
 package com.project.back_end.models;
-
+@Entity
 public class Patient {
-    @Entity
+    
 // @Entity annotation:
 //    - Marks the class as a JPA entity, meaning it represents a table in the database.
 //    - Required for persistence frameworks (e.g., Hibernate) to map the class to a database table.
-    private Long id{
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 // 1. 'id' field:
 //    - Type: private Long
 //    - Description:
 //      - Represents the unique identifier for each patient.
 //      - The @Id annotation marks it as the primary key.
 //      - The @GeneratedValue(strategy = GenerationType.IDENTITY) annotation auto-generates the ID value when a new record is inserted into the database.
-    private String name{
-        @NotNull
-        @Size(min = 3, max = 100)
-    }
+    @NotNull
+    @Size(min = 3, max = 100)
+    private String name;
 // 2. 'name' field:
 //    - Type: private String
 //    - Description:
@@ -26,44 +24,39 @@ public class Patient {
 //      - The @NotNull annotation ensures that the patient's name is required.
 //      - The @Size(min = 3, max = 100) annotation ensures that the name length is between 3 and 100 characters. 
 //      - Provides validation for correct input and user experience.
-
-private String email{
     @NotNull
     @Email
-}
+    private String email;
 // 3. 'email' field:
 //    - Type: private String
 //    - Description:
 //      - Represents the patient's email address.
 //      - The @NotNull annotation ensures that an email address must be provided.
 //      - The @Email annotation validates that the email address follows a valid email format (e.g., patient@example.com).
-    private String password{
-        @NotNull
-        @Size(min = 6)
-        @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    }
+    @NotNull
+    @Size(min = 6)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String password;
+        
 // 4. 'password' field:
 //    - Type: private String
 //    - Description:
 //      - Represents the patient's password for login authentication.
 //      - The @NotNull annotation ensures that a password must be provided.
 //      - The @Size(min = 6) annotation ensures that the password must be at least 6 characters long.
-
-    private String phone{
-        @NotNull
-        @Pattern(regexp = "^[0-9]{10}$") 
-    }
+    @NotNull
+    @Pattern(regexp = "^[0-9]{10}$") 
+    private String phone;
 // 5. 'phone' field:
 //    - Type: private String
 //    - Description:
 //      - Represents the patient's phone number.
 //      - The @NotNull annotation ensures that a phone number must be provided.
 //      - The @Pattern(regexp = "^[0-9]{10}$") annotation validates that the phone number must be exactly 10 digits long.
-
-    private String address{
-        @NotNull
-        @Size(max = 255)
-    }
+    @NotNull
+    @Size(max = 255)
+    private String address;
+        
 // 6. 'address' field:
 //    - Type: private String
 //    - Description:
