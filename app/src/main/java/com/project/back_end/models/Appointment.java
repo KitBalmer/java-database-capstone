@@ -23,7 +23,7 @@ public class Appointment {
 
     private Doctor doctor{
         @ManyToOne
-        @NotNull
+        @NotNull(message = "username cannot be null")
 
 
         }
@@ -38,7 +38,7 @@ public class Appointment {
 
     private Patient patient{
         @ManyToOne
-        @NotNull
+        @NotNull(message = "username cannot be null")
 
 
         }
@@ -66,7 +66,7 @@ public class Appointment {
 //      - It uses LocalDateTime, which includes both the date and time for the appointment.
 
     private int status{
-        @NotNull
+        @NotNull(message = "username cannot be null")
 
     }
 
