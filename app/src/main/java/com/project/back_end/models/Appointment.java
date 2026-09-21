@@ -1,32 +1,24 @@
 package com.project.back_end.models;
 
+@Entity
 public class Appointment {
-    @Entity
+    
 
   // @Entity annotation:
 //    - Marks the class as a JPA entity, meaning it represents a table in the database.
 //    - Required for persistence frameworks (e.g., Hibernate) to map the class to a database table.
-
-    private Long id{
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-
-        }
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 // 1. 'id' field:
 //    - Type: private Long
 //    - Description:
 //      - Represents the unique identifier for each appointment.
 //      - The @Id annotation marks it as the primary key.
 //      - The @GeneratedValue(strategy = GenerationType.IDENTITY) annotation auto-generates the ID value when a new record is inserted into the database.
-
-    private Doctor doctor{
-        @ManyToOne
-        @NotNull(message = "username cannot be null")
-
-
-        }
+    @ManyToOne
+    @NotNull(message = "username cannot be null")
+    private Doctor doctor;
 
 
 // 2. 'doctor' field:
@@ -36,13 +28,9 @@ public class Appointment {
 //      - The @ManyToOne annotation defines the relationship, indicating many appointments can be linked to one doctor.
 //      - The @NotNull annotation ensures that an appointment must be associated with a doctor when created.
 
-    private Patient patient{
-        @ManyToOne
-        @NotNull(message = "username cannot be null")
-
-
-        }
-
+    @ManyToOne
+    @NotNull(message = "username cannot be null")
+    private Patient patient;
 
 // 3. 'patient' field:
 //    - Type: private Patient
@@ -51,11 +39,9 @@ public class Appointment {
 //      - The @ManyToOne annotation defines the relationship, indicating many appointments can be linked to one patient.
 //      - The @NotNull annotation ensures that an appointment must be associated with a patient when created.
 
-    private LocalDateTime appointmentTime{
-        @Future(message = "Appointment time must be in the future")
-
-
-        }
+    @Future(message = "Appointment time must be in the future")
+    private LocalDateTime appointmentTime;
+        
 
 
 // 4. 'appointmentTime' field:
@@ -64,12 +50,8 @@ public class Appointment {
 //      - Represents the date and time when the appointment is scheduled to occur.
 //      - The @Future annotation ensures that the appointment time is always in the future when the appointment is created.
 //      - It uses LocalDateTime, which includes both the date and time for the appointment.
-
-    private int status{
-        @NotNull(message = "username cannot be null")
-
-    }
-
+    @NotNull(message = "username cannot be null")
+    private int status;
 // 5. 'status' field:
 //    - Type: private int
 //    - Description:
@@ -77,11 +59,8 @@ public class Appointment {
 //        - 0 means the appointment is scheduled.
 //        - 1 means the appointment has been completed.
 //      - The @NotNull annotation ensures that the status field is not null.
-
-    private LocalDateTime getEndTime{
-        @Transient
-
-    }
+    @Transient
+    private LocalDateTime getEndTime;
 
 // 6. 'getEndTime' method:
 //    - Type: private LocalDateTime
@@ -89,23 +68,16 @@ public class Appointment {
 //      - This method is a transient field (not persisted in the database).
 //      - It calculates the end time of the appointment by adding one hour to the start time (appointmentTime).
 //      - It is used to get an estimated appointment end time for display purposes.
-
-    private LocalDate getAppointmentDate{
-        @Transient
-
-    }
+    @Transient
+    private LocalDate getAppointmentDate;
 
 // 7. 'getAppointmentDate' method:
 //    - Type: private LocalDate
 //    - Description:
 //      - This method extracts only the date part from the appointmentTime field.
 //      - It returns a LocalDate object representing just the date (without the time) of the scheduled appointment.
-
-    private LocalTime getAppointmentTimeOnly{
-        @Transient
-
-    }
-
+    @Transient
+    private LocalTime getAppointmentTimeOnly;
 // 8. 'getAppointmentTimeOnly' method:
 //    - Type: private LocalTime
 //    - Description:
