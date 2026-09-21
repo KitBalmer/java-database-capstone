@@ -98,23 +98,23 @@ public class Appointment {
         return doctor;
     }
     public String getPatient() {
-        return patient
+        return patient;
     }
     public String getAppointmentTime() {
-        return appointmentTime
+        return appointmentTime;
     }
     public String getStatus() {
-        return status
+        return status;
     }
 
     public void setId(String newId) {
-        this.id = id;
+        this.id = newId;
     }
     public void setDoctor(String newDoctor) {
-        this.doctor = doctor;
+        this.doctor = newDoctor;
     }
     public void setPatient(String newPatient) {
-        this.patient = patient;
+        this.patient = newPatient;
     }
     public void setAppointmentTime(String newAppointmentTime) {
         this.appointmentTime = newAppointmentTime;
@@ -127,4 +127,3 @@ public class Appointment {
 //    - Standard getter and setter methods are provided for accessing and modifying the fields: id, doctor, patient, appointmentTime, status, etc.
 
 }
-
