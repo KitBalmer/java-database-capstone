@@ -71,19 +71,19 @@ public class Patient {
         return name;
     }
     public String getSpecialty() {
-        return patient
+        return patient;
     }
     public String getEmail() {
-        return email
+        return email;
     }
     public String getPassword() {
-        return password
+        return password;
     }
     public String getPhone() {
-        return phone
+        return phone;
     }
     public List<String> getAvailableTimes() {
-        return availableTimes
+        return availableTimes;
     }
 
     public void setId(String newId) {
