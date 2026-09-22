@@ -1,4 +1,26 @@
 package com.project.back_end.models;
+
+import java.util.List;
+import java.time.LocalDateTime; 
+import java.time.LocalDate; 
+import java.time.LocalTime; 
+
+import jakarta.persistence.Entity;
+import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Transient;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.ElementCollection;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
 @Entity
 public class Patient {
     
@@ -70,9 +92,6 @@ public class Patient {
     public String getName() {
         return name;
     }
-    public String getSpecialty() {
-        return patient;
-    }
     public String getEmail() {
         return email;
     }
@@ -82,19 +101,14 @@ public class Patient {
     public String getPhone() {
         return phone;
     }
-    public List<String> getAvailableTimes() {
-        return availableTimes;
-    }
 
-    public void setId(String newId) {
+    public void setId(Long newId) {
         this.id = newId;
     }
     public void setName(String newName) {
         this.name = newName;
     }
-    public void setSpecialty(String newSpecialty) {
-        this.specialty = newSpecialty;
-    }
+
     public void setEmail(String newEmail) {
         this.email = newEmail;
     }
@@ -104,9 +118,7 @@ public class Patient {
     public void setPhone(String newPhone) {
         this.phone = newPhone;
     }
-    public void setAvailableTimes(String newAvailableTimes) {
-        this.availableTimes = newAvailableTimes;
-    }
+
 
 // 7. Getters and Setters:
 //    - Standard getter and setter methods are provided for all fields: id, name, email, password, phone, and address.
