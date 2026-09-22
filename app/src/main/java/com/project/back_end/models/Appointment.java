@@ -1,5 +1,26 @@
 package com.project.back_end.models;
 
+import java.util.List;
+import java.time.LocalDateTime; 
+import java.time.LocalDate; 
+import java.time.LocalTime; 
+
+import jakarta.persistence.Entity;
+import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Transient;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.ElementCollection;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
 @Entity
 public class Appointment {
     
@@ -60,7 +81,9 @@ public class Appointment {
 //        - 1 means the appointment has been completed.
 //      - The @NotNull annotation ensures that the status field is not null.
     @Transient
-    private LocalDateTime getEndTime;
+    private LocalDateTime getEndTime() {
+        return appointmentTime.plusHours(1);
+    }
 
 // 6. 'getEndTime' method:
 //    - Type: private LocalDateTime
@@ -94,32 +117,32 @@ public class Appointment {
     public Long getId() {
         return id;
     }
-    public String getDoctor() {
+    public Doctor getDoctor() {
         return doctor;
     }
-    public String getPatient() {
+    public Patient getPatient() {
         return patient;
     }
-    public String getAppointmentTime() {
+    public LocalDateTime getAppointmentTime() {
         return appointmentTime;
     }
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setId(String newId) {
+    public void setId(Long newId) {
         this.id = newId;
     }
-    public void setDoctor(String newDoctor) {
+    public void setDoctor(Doctor newDoctor) {
         this.doctor = newDoctor;
     }
-    public void setPatient(String newPatient) {
+    public void setPatient(Patient newPatient) {
         this.patient = newPatient;
     }
-    public void setAppointmentTime(String newAppointmentTime) {
+    public void setAppointmentTime(LocalDateTime newAppointmentTime) {
         this.appointmentTime = newAppointmentTime;
     }
-    public void setStatus(String newStatus) {
+    public void setStatus(int newStatus) {
         this.status = newStatus;
     }
 
