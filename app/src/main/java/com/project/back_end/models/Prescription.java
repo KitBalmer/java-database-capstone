@@ -1,5 +1,25 @@
 package com.project.back_end.models;
 
+import java.util.List;
+import java.time.LocalDateTime; 
+import java.time.LocalDate; 
+import java.time.LocalTime; 
+
+import jakarta.persistence.Entity;
+import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Transient;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.ElementCollection;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Document(collection = "prescriptions")
 public class Prescription {
     
@@ -26,7 +46,7 @@ public class Prescription {
 //      - The @NotNull annotation ensures that the patient name is required.
 //      - The @Size(min = 3, max = 100) annotation ensures that the name length is between 3 and 100 characters, ensuring a reasonable name length.
     @NotNull
-    private Long apppointmentId;
+    private Long appointmentId;
 // 3. 'appointmentId' field:
 //    - Type: private Long
 //    - Description:
@@ -63,9 +83,9 @@ public class Prescription {
         return id;
     }
     public String getPatientName() {
-        return patientNameame;
+        return patientName;
     }
-    public String getAppointmentId() {
+    public Long getAppointmentId() {
         return appointmentId;
     }
     public String getMedication() {
@@ -78,20 +98,17 @@ public class Prescription {
         return doctorNotes;
     }
 
-    public void setId(String newId) {
+    public void setId(Long newId) {
         this.id = newId;
     }
-    public void setPatientName(String newName) {
-        this.name = newName;
+    public void setPatientName(String newPatientName) {
+        this.patientName = newPatientName;
     }
-    public void setAppointmentId(String newAppointmentId) {
+    public void setAppointmentId(Long newAppointmentId) {
         this.appointmentId = newAppointmentId;
     }
     public void setMedication(String newMedication) {
         this.medication = newMedication;
-    }
-    public void setPassword(String newPassword) {
-        this.password = newPassword;
     }
     public void setDosage(String newDosage) {
         this.dosage = newDosage;
