@@ -1,5 +1,25 @@
 package com.project.back_end.models;
 
+import java.util.List;
+import java.time.LocalDateTime; 
+import java.time.LocalDate; 
+import java.time.LocalTime; 
+
+import jakarta.persistence.Entity;
+import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Transient;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.ElementCollection;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class Admin {
     
@@ -55,7 +75,7 @@ public class Admin {
         return password;
     }
 
-    public void setId() {
+    public void setId(Long newId) {
         this.id = newId;
     }
     public void setUsername(String newUsername) {
