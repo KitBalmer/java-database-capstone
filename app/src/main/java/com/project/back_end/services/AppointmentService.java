@@ -187,4 +187,3 @@ public class AppointmentService {
 //    - Instruction: Add `@Transactional` before this method to ensure atomicity when updating appointment status.
 
 
-}
